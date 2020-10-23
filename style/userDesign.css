@@ -1,0 +1,235 @@
+.bgcolor{
+  background-color: #3498db;
+
+}
+
+.logosize{
+  font-size:40px;
+  font-family: Georgia;
+              /*  */
+  text-shadow: 2px 3px 3px #808080;
+
+}
+@media screen and (max-width: 768px) {
+  .logosize {
+    font-size:30px ;
+  }
+}
+
+#wrapper{
+   display:flex;
+   flex- direction: column;
+   min-height: 100vh;
+}
+
+footer{
+  margin-top:auto;
+}
+#hpwrapper {
+  /* background: url(/assets/HPbg2.jpg) no-repeat center top; */
+  background-color: #3498db;
+
+  /* margin-top: -10px; */
+  padding-top: 200px;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 100%;
+
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#hpwrapper h1 {
+  margin-top: 50px;
+  margin-bottom: 15px;
+  /* margin-left: 10%; */
+  color: white;
+  font-size: 45px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+#hpwrapper button{
+  margin-top: 40px;
+  margin-bottom: 15px;
+  /* margin-left: 10%; */
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+
+}
+
+@media (max-width: 768px) {
+  #hpwrapper {
+    padding-top: 100px;
+
+  }
+
+  #hpwrapper h1 {
+    margin-top: 10px;
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+  #hpwrapper button{
+    margin-top: 10px;
+    font-size: 15;
+  }
+}
+
+
+img {
+  vertical-align: middle;
+}
+
+.resimg{
+  margin-top: 20px;
+
+  display: block;
+  max-width: 200%;
+  height: auto;
+  margin:0 auto;
+
+  /* margin-left: 20%; */
+
+}
+
+
+@media (max-width: 768px) {
+  .resimg{
+    max-width: 70%;
+    margin:0 auto;
+  }
+}
+
+/*------------------------*/
+/*       SNS Icon         */
+/*------------------------*/
+.follow-me {
+  list-style: none;
+  margin: 0 0 0px;
+  overflow: hidden;
+  padding: 0;
+
+}
+.follow-me li {
+
+  margin: 0 8px 5px 0px;
+  padding: 0;
+  display: inline-block;
+
+}
+@media screen and (min-width:767px){
+  .follow-me li {
+    margin: 0 8px 5px 15px;
+    float: left;
+
+}
+}
+.follow-me li a::before {
+  background-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  color: #fff;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 16px;
+  height: 42px; /* Button height */
+  line-height: 42px; /* Button height */
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  text-align: center;
+  width: 42px; /* Button width */
+}
+
+/* Change Icon shape */
+.follow-me li a::before {
+    -webkit-border-radius: 2px; /* for Android ~4.3 */
+    border-radius: 50%;
+    font-size: 20px;
+    height: 35px;
+    line-height: 35px;
+    width: 35px;
+}
+
+.follow-me li a[href*="facebook.com"]::before       { border-color: #3b5998; color: #3b5998; content: "\f09a"; }
+.follow-me li a[href*="plus.google.com"]::before    { border-color: #dc4e41; color: #dc4e41; content: "\f0d5"; }
+.follow-me li a[href*="instagram.com"]::before      { border-color: #125688; color: #125688; content: "\f16d"; }
+.follow-me li a[href*="twitter.com"]::before        { border-color: #55acee; color: #55acee; content: "\f099"; }
+.follow-me li a[href*="youtube.com"]::before        { border-color: #cd201f; color: #cd201f; content: "\f16a"; }
+.follow-me li a[href$="/feed"]::before              { border-color: #ffa500; color: #ffa500; content: "\f09e"; }
+.follow-me li a[href$="/subscribe"]::before         { border-color: #363636; color: #363636; content: "\f000"; font-family: blogicon; }
+.follow-me li a:hover::before {
+  color: #fff;
+}
+
+.follow-me li a[href*="facebook.com"]:hover::before       { background-color: #3b5998; }
+.follow-me li a[href*="plus.google.com"]:hover::before    { background-color: #dc4e41; }
+.follow-me li a[href*="instagram.com"]:hover::before      { background-color: #DD2A7B; }
+.follow-me li a[href*="twitter.com"]:hover::before        { background-color: #55acee; }
+.follow-me li a[href*="youtube.com"]:hover::before        { background-color: #cd201f; }
+.follow-me li a[href$="/feed"]:hover::before              { background-color: #ffa500; }
+.follow-me li a[href$="/subscribe"]:hover::before         { background-color: #363636; }
+
+.linkCenter ul{
+    text-align:center;
+}
+
+/*--------SNS icon end----------------*/
+
+/*-----------Footer------------------*/
+.footer-login{
+    width: 100%;
+    background-color: #89c7de;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+
+ position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+}
+
+
+/*----------Login form---------*/
+
+.wrapper-form {
+	margin-top: 100px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 500px;
+  /* max-height: 400px; */
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.form-signin h2{
+  margin-bottom: 50px;
+  font-family: Georgia;
+
+}
+.form-signin input{
+  margin-bottom: 10px;
+}
+
+	.form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
