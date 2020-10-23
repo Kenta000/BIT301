@@ -59,7 +59,7 @@ body {
 
 .side-nav .menu-btn {
     position: absolute;
-    top: 10%;
+    top: 1%;
     right: 5%;
     padding: 0;
     width: 30px;
@@ -243,25 +243,25 @@ body {
 }
 
 /* main content */
-/* main content */
 
 .inform{
   z-index: 1;
 	position:absolute;
-	top: 50%;
+	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	color: rgba(255, 255, 255, 0.8);
-	font-size: 2rem;
-	font-family: sans-serif;
+	font-size: 15px;
+	/* font-family: sans-serif; */
 	/* text-transform: uppercase; */
 	letter-spacing: 5px;
 	text-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
 
-/* @media (max-width: 1024px) {
+@media (max-width: 1024px) {
   .inform {
-    top: 1%;
-    left: 1%;
+    top: 45%;
+    left: 60%;
+    width: 100%;
   }
-} */
+}
