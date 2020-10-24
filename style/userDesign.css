@@ -15,12 +15,12 @@
     font-size:30px ;
   }
 }
-
+/*
 #wrapper{
    display:flex;
    flex- direction: column;
    min-height: 100vh;
-}
+} */
 
 footer{
   margin-top:auto;
@@ -92,7 +92,7 @@ img {
   margin-top: 20px;
 
   display: block;
-  max-width: 200%;
+  max-width: 110%;
   height: auto;
   margin:0 auto;
 
@@ -180,7 +180,14 @@ img {
 .follow-me li a[href$="/subscribe"]:hover::before         { background-color: #363636; }
 
 .linkCenter ul{
-    text-align:center;
+
+    margin-left: 36%;
+}
+@media (max-width:767px) {
+  .linkCenter ul{
+
+      margin-left: 0%;
+  }
 }
 
 /*--------SNS icon end----------------*/
