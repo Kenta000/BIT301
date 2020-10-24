@@ -22,20 +22,21 @@
     </header>
       <!-- side menu this is disapper when phone size-->
       <div class="nav-side-menu">
+            <label for="">Manager Page</label>
             <div class="menu-list" style="margin-top:150px;">
                 <ul id="menu-content" class="menu-content collapse out">
-                    <li>
+                    <li onclick="showGTR();">
                       <a href="#">Generate Test Report</a>
                     </li>
 
-                    <li  data-toggle="collapse" data-target="#products" class=" ">
+                    <li  data-toggle="collapse" data-target="#products" class=" " onclick="showRTC();">
                       <a href="#">Register Test Center</a>
                     </li>
-                    <li data-toggle="collapse" data-target="#service" class="">
+                    <li data-toggle="collapse" data-target="#service" class="" onclick="showRT();">
                       <a href="#">Record Tester</a>
                     </li>
 
-                    <li data-toggle="collapse" data-target="#service" class="">
+                    <li data-toggle="collapse" data-target="#service" class="" onclick="showMTKS();">
                       <a href="#">Manage Test Kit stocks</a>
                     </li>
                 </ul>
@@ -51,10 +52,10 @@
           </div>
 
           <div class="nav-links" >
-            <a href="" class="link" >Generate Test Report</a>
-            <a href="" class="link">Register Test Center</a>
-            <a href="" class="link">Record Tester</a>
-            <a href="" class="link">Manage Test Kit stocks</a>
+            <a href="" class="link" onclick="showGTR();">Generate Test Report</a>
+            <a href="" class="link" onclick="showRTC();">Register Test Center</a>
+            <a href="" class="link" onclick="showRT();">Record Tester</a>
+            <a href="" class="link" onclick="showMTKS();">Manage Test Kit stocks</a>
           </div>
         </nav>
 
@@ -63,10 +64,50 @@
 
   <main>
   <div class="inform">
-  	Main contents here
+
+    <!-- For register test center  -->
+    <form class="testCeneterReg" id="testCenterForm" style="display:none;">
+      <div class="form-group ">
+        <label for="testCenterName">Enter Test Ceneter Name Here</label>
+        <input type="text" class="form-control" id="testCenterName" aria-describedby="" placeholder="Enter Test Center Name">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
+    </form>
+
+
+  <!-- for record tester -->
+  <form class="recordTester" id="recordTesterForm" style="display:none;">
+    <h2>Record new Test Officer</h2>
+    <div class="form-group form-inline">
+      <div class="">
+        <label for="testerUname">Enter Tester Userbame Here</label>
+        <input type="text" class="form-control" id="testerUname" aria-describedby="" placeholder="Enter Tester username">
+      </div>
+      <div class="">
+        <label for="testerPas">Enter Tester Password Here</label>
+        <input type="password" class="form-control" id="testerPas" aria-describedby="" placeholder="Enter Tester Password">
+      </div>
+      <br>
+      <div class="">
+        <label for="testerName">Enter Tester Username Here</label>
+        <input type="text" class="form-control" id="testerName" aria-describedby="" placeholder="Enter Tester Name">
+      </div>
+      <div class="">
+        <label for="testCenterlist">Choose TestCenter</label>
+        <select id="testCenterlist" class="form-control">
+          <option selected>Choose...</option>
+          <option>...</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
+  </form>
+
+
+  <!-- for manage test kit -->
+
+
   </div>
-
-
 </main>
     <!-- end of content -->
 
@@ -81,19 +122,44 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
   <script>
-  var menuBtn = document.querySelector('.menu-btn');
-  var nav = document.querySelector('.side-nav');
-  var lineOne = document.querySelector('nav .menu-btn .line--1');
-  var lineTwo = document.querySelector('nav .menu-btn .line--2');
-  var lineThree = document.querySelector('nav .menu-btn .line--3');
-  var link = document.querySelector('nav .nav-links');
-  menuBtn.addEventListener('click', () => {
-      nav.classList.toggle('nav-open');
-      lineOne.classList.toggle('line-cross');
-      lineTwo.classList.toggle('line-fade-out');
-      lineThree.classList.toggle('line-cross');
-      link.classList.toggle('fade-in');
-  })
+    // show Generate test form
+    function showGTR(){
+    document.getElementById('testCenterForm').style.display = 'none';
+    document.getElementById('recordTesterForm').style.display = 'none';
+    document.getElementById('mka_div').style.display = 'block';
+    }
+    // show Register test center form
+    function showRTC(){
+      document.getElementById('recordTesterForm').style.display = 'none';
+      // document.getElementById('intro').style.display = 'none';
+      document.getElementById('testCenterForm').style.display = 'block';
+    }
+    // show Record test form
+    function showRT(){
+      document.getElementById('testCenterForm').style.display = 'none';
+      // document.getElementById('intro').style.display = 'none';
+      document.getElementById('recordTesterForm').style.display = 'block';
+    }
+    // show Manage test kit stocks form
+    function showMTKS(){
+      document.getElementById('testCenterForm').style.display = 'none';
+      document.getElementById('recordTesterForm').style.display = 'none';
+      document.getElementById('history_div').style.display = 'block';
+    }
+    // for phone size side menu
+    var menuBtn = document.querySelector('.menu-btn');
+    var nav = document.querySelector('.side-nav');
+    var lineOne = document.querySelector('nav .menu-btn .line--1');
+    var lineTwo = document.querySelector('nav .menu-btn .line--2');
+    var lineThree = document.querySelector('nav .menu-btn .line--3');
+    var link = document.querySelector('nav .nav-links');
+    menuBtn.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+        lineOne.classList.toggle('line-cross');
+        lineTwo.classList.toggle('line-fade-out');
+        lineThree.classList.toggle('line-cross');
+        link.classList.toggle('fade-in');
+    })
   </script>
   </body>
 
