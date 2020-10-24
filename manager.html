@@ -11,8 +11,78 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>Manager</title>
+    <style media="screen">
+    table{
+      width:100%;
+      table-layout: fixed;
+    }
+    .tbl-header{
+      background-color: rgba(200,200,100,1);
+      border: 1px solid rgba(0,0,0,0.7);
+      width:100%;
+     }
+    .tbl-content{
+      height:500px;
+      overflow-x:auto;
+      margin-top: 0px;
+      border: 1px solid rgba(0,0,0,0.3);
+      background-color: rgba(250,250,250,1);
+      width:100%;
+    }
+    th{
+      padding: 20px 15px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 12px;
+      /* color: #fff; */
+      text-transform: uppercase;
+    }
+    td{
+      padding: 15px;
+      text-align: left;
+      vertical-align:middle;
+      font-weight: 400;
+      font-size: 15px;
+      /* color: #fff; */
+      border-bottom: solid 1px rgba(0,0,0,0.3);
+    }
+
+    @media screen and (max-width: 640px) {
+      .tbl-r05 {
+        width: 100%;
+      }
+      .tbl-r05 h1{
+        font-size: 20px;
+      }
+      .tbl-r05 thead {
+        display: none;
+
+      }
+      .tbl-r05 tr {
+        width: 100%;
+      }
+      .tbl-r05 td {
+        display: block;
+        text-align: left;
+        width: 100%;
+      }
+      .tbl-r05 td:first-child {
+        background: #e9727e;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+      }
+      .tbl-r05 td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+    }
+
+    </style>
   </head>
-  <body class="" style="background-color: #c4ffe3;">
+  <body class="" style="background-color: #dddddd;">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light officerbgcolor" >
         <a class="logosize" href="home.html" style="color:white; margin:auto;">Co-Tracker Ltd.</a>
@@ -20,7 +90,7 @@
       </nav>
 
     </header>
-      <!-- side menu this is disapper when phone size-->
+<!-- side menu this is disapper when phone size-->
       <div class="nav-side-menu">
             <label for="">Manager Page</label>
             <div class="menu-list" style="margin-top:150px;">
@@ -29,44 +99,172 @@
                       <a href="#">Generate Test Report</a>
                     </li>
 
-                    <li  data-toggle="collapse" data-target="#products" class=" " onclick="showRTC();">
+                    <li  data-toggle="" data-target="" class=" " onclick="showRTC();">
                       <a href="#">Register Test Center</a>
                     </li>
-                    <li data-toggle="collapse" data-target="#service" class="" onclick="showRT();">
+                    <li data-toggle="" data-target="" class="" onclick="showRT();">
                       <a href="#">Record Tester</a>
                     </li>
 
-                    <li data-toggle="collapse" data-target="#service" class="" onclick="showMTKS();">
+                    <li data-toggle="" data-target="" class="" onclick="showMTKS();">
                       <a href="#">Manage Test Kit stocks</a>
                     </li>
                 </ul>
          </div>
         </div>
 
-        <!-- side for phone size -->
+<!-- side for phone size -->
         <nav class="side-nav">
-        <div class="menu-btn">
+          <div class="menu-btn">
             <div class="line line--1"></div>
             <div class="line line--2"></div>
             <div class="line line--3"></div>
           </div>
 
           <div class="nav-links" >
-            <a href="" class="link" onclick="showGTR();">Generate Test Report</a>
-            <a href="" class="link" onclick="showRTC();">Register Test Center</a>
-            <a href="" class="link" onclick="showRT();">Record Tester</a>
-            <a href="" class="link" onclick="showMTKS();">Manage Test Kit stocks</a>
+            <a href="#" class="link" onclick="showGTR();">Generate Test Report</a>
+            <a href="#" class="link" onclick="showRTC();">Register Test Center</a>
+            <a href="#" class="link" onclick="showRT();">Record Tester</a>
+            <a href="#" class="link" onclick="showMTKS();">Manage Test Kit stocks</a>
           </div>
         </nav>
 
-    <!-- content -->
-
-
+<!-- content -->
   <main>
+    <!-- This class is wrapper for content -->
+    <div class="informForGenRepo" id="showGTR" style="display:none;">
+      <div class="testerGenTes"   >
+        <section class="tbl-r05">
+          <div class="" style="text-align:center;">
+            <h2 class="fontSizeTitle">Generated Reports</h2>
+          </div>
+
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Username</th>
+                    <th>Type</th>
+                    <th>Test center</th>
+                    <th>Sysmptom</th>
+                    <th>Result</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                  <tr>
+                    <td>2020/10/20</td>
+                    <td>Kenta</td>
+                    <td>Returneee</td>
+                    <td>HELP</td>
+                    <td>Have fever</td>
+                    <td>Positive</td>
+                    <td>Completed</td>
+                  </tr>
+                  <tr>
+                    <td>2020/10/21</td>
+                    <td>Doston</td>
+                    <td>Returnee</td>
+                    <td>HELP</td>
+                    <td>Have fever</td>
+                    <td>Positive</td>
+                    <td>Completed</td>
+                  </tr>
+                  <tr>
+                    <td>2020/10/21</td>
+                    <td>Sky</td>
+                    <td>Returnee</td>
+                    <td>HELP</td>
+                    <td>Have fever</td>
+                    <td>Positive</td>
+                    <td>Completed</td>
+                  </tr>
+                  <tr>
+                    <td>2020/10/22</td>
+                    <td>Ann</td>
+                    <td>Returnee</td>
+                    <td>HELP</td>
+                    <td>Have fever</td>
+                    <td>Positive</td>
+                    <td>Completed</td>
+                  </tr>
+                  <tr>
+                    <td>2020/10/23</td>
+                    <td>AAAA</td>
+                    <td>Returnee</td>
+                    <td>HELP</td>
+                    <td>Have fever</td>
+                    <td>Positive</td>
+                    <td>Completed</td>
+                  </tr>
+                  <tr>
+                    <td>2020/10/24</td>
+                    <td>BBBB</td>
+                    <td>Returnee</td>
+                    <td>HELP</td>
+                    <td>Have fever</td>
+                    <td>Positive</td>
+                    <td>Completed</td>
+                  </tr>
+                  <tr>
+                    <td>2020/10/25</td>
+                    <td>CCCC</td>
+                    <td>Returnee</td>
+                    <td>HELP</td>
+                    <td>Have fever</td>
+                    <td>Positive</td>
+                    <td>Completed</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+    </div>
+    <div class="informForrecTester">
+      <!-- for record tester -->
+          <form class="recordTester" id="recordTesterForm" style="display:none;" >
+
+            <div class="" style="text-align:center;">
+              <h2 class="fontSizeTitle">Record New Test Officer</h2>
+            </div>
+            <div class="form-group">
+              <label for="testerUname">Enter Tester Userbame Here</label>
+              <input type="text" class="form-control" id="testerUname" aria-describedby="" placeholder="Tester username">
+
+              <label for="testerPas">Enter Tester Password Here</label>
+              <input type="password" class="form-control" id="testerPas" aria-describedby="" placeholder="Tester Password">
+
+
+              <label for="testerName">Enter Tester Username Here</label>
+              <input type="text" class="form-control" id="testerName" aria-describedby="" placeholder="Tester Name">
+              <label for="testCenterlist">Choose Test Center</label>
+              <select id="testCenterlist" class="form-control">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="" style="  text-align: center;">
+              <button type="submit" class="btn btn-primary" style="width:40%;">Submit</button>
+            </div>
+
+          </form>
+    </div>
+
+<!-- This class is wrapper for content -->
   <div class="inform">
 
-    <!-- For register test center  -->
+<!-- For register test center  -->
     <form class="testCeneterReg" id="testCenterForm" style="display:none;">
+      <div class="" style="text-align:center;">
+        <h2 class="fontSizeTitle">Register Test Center</h2>
+      </div>
+      <br>
       <div class="form-group ">
         <label for="testCenterName">Enter Test Ceneter Name Here</label>
         <input type="text" class="form-control" id="testCenterName" aria-describedby="" placeholder="Enter Test Center Name">
@@ -75,41 +273,85 @@
     </form>
 
 
-  <!-- for record tester -->
-  <form class="recordTester" id="recordTesterForm" style="display:none;">
-    <h2>Record new Test Officer</h2>
-    <div class="form-group form-inline">
-      <div class="">
-        <label for="testerUname">Enter Tester Userbame Here</label>
-        <input type="text" class="form-control" id="testerUname" aria-describedby="" placeholder="Enter Tester username">
-      </div>
-      <div class="">
-        <label for="testerPas">Enter Tester Password Here</label>
-        <input type="password" class="form-control" id="testerPas" aria-describedby="" placeholder="Enter Tester Password">
+
+<!-- for manage test kit -->
+    <div class="mngKits " id="manageKit" style="display:none; ">
+      <div class="" style="text-align:center;">
+        <h2 class="fontSizeTitle">Record new Test Officer</h2>
       </div>
       <br>
-      <div class="">
-        <label for="testerName">Enter Tester Username Here</label>
-        <input type="text" class="form-control" id="testerName" aria-describedby="" placeholder="Enter Tester Name">
+      <div class="row" style="">
+          <form class="col-lg" style="text-align:center; " >
+            <div class="form-group mngKitsBtn">
+              <label for="kitList">Select Test Kit</label>
+              <select id="kitList" class="form-control" style="margin:auto;" onChange="openUpdateKit()">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+          </form>
+
+<!-- new kit -->
+          <div class="col-lg" style="text-align:center;" id="btnNewKit">
+            <label for="">Click Here to Add new kit</label><br>
+            <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#newKit" >Add New Kit</button>
+          </div>
+
       </div>
-      <div class="">
-        <label for="testCenterlist">Choose TestCenter</label>
-        <select id="testCenterlist" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
+
+      <div class="" id="updateKitForm" style="display:none;">
+        <form class="" action="" method="post" style="text-align:center; ">
+          <div class="form-group ">
+            <label for="updateKit">Update Number of Kits</label>
+            <input type="number" class="form-control " id="updateKit"  placeholder="Number of Kits" style="margin:auto; width:50%;">
+            <br>
+            <div class="" style="" >
+              <button type="button" class="btn btn-primary" onclick="hideUpdateKit()">Update Kit</button>
+            </div>
+
+          </div>
+        </form>
+
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
-  </form>
 
-
-  <!-- for manage test kit -->
 
 
   </div>
+<!--  End of inform class-->
+
+
+
+<!-- Modal for new test kit should be outside to display-->
+      <div class="modal fade" id="newKit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Record New Kit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form class="recordNewKit" >
+                <div class="modal-body">
+                    <div class="form-group">
+                      <label for="testerUname">Enter Test Kit name</label>
+                      <input type="text" class="form-control" id="kitNewName" aria-describedby="" placeholder="New Kit name">
+                    </div>
+                    <div class="form-group">
+                      <label for="testCenterlist">Number of stocks</label>
+                      <input type="number" class="form-control" id="newKitNo" aria-describedby="" placeholder="Number of stocks">
+                    </div>
+                </div>
+                <div class="modal-footer" >
+                  <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
 </main>
-    <!-- end of content -->
+<!-- end of content -->
 
 
 
@@ -124,28 +366,58 @@
   <script>
     // show Generate test form
     function showGTR(){
+      // hide btn when move other page
+      document.getElementById('btnNewKit').style.display = 'block';
+      document.getElementById('updateKitForm').style.display = 'none';
+      // For side menu
     document.getElementById('testCenterForm').style.display = 'none';
     document.getElementById('recordTesterForm').style.display = 'none';
-    document.getElementById('mka_div').style.display = 'block';
+    document.getElementById('manageKit').style.display = 'none';
+    document.getElementById('showGTR').style.display = 'block';
     }
     // show Register test center form
     function showRTC(){
+      document.getElementById('btnNewKit').style.display = 'block';
+      document.getElementById('updateKitForm').style.display = 'none';
+      // For side menu
+      document.getElementById('showGTR').style.display = 'none';
       document.getElementById('recordTesterForm').style.display = 'none';
-      // document.getElementById('intro').style.display = 'none';
+      document.getElementById('manageKit').style.display = 'none';
       document.getElementById('testCenterForm').style.display = 'block';
     }
     // show Record test form
     function showRT(){
+      document.getElementById('btnNewKit').style.display = 'block';
+      document.getElementById('updateKitForm').style.display = 'none';
+      // For side menu
+      document.getElementById('showGTR').style.display = 'none';
       document.getElementById('testCenterForm').style.display = 'none';
-      // document.getElementById('intro').style.display = 'none';
+      document.getElementById('manageKit').style.display = 'none';
       document.getElementById('recordTesterForm').style.display = 'block';
     }
     // show Manage test kit stocks form
     function showMTKS(){
+      document.getElementById('btnNewKit').style.display = 'block';
+      document.getElementById('updateKitForm').style.display = 'none';
+      // For side menu
+      document.getElementById('showGTR').style.display = 'none';
       document.getElementById('testCenterForm').style.display = 'none';
       document.getElementById('recordTesterForm').style.display = 'none';
-      document.getElementById('history_div').style.display = 'block';
+      document.getElementById('manageKit').style.display = 'block';
     }
+
+    // when kit list selected then show form for update
+    function openUpdateKit(){
+      document.getElementById('btnNewKit').style.display = 'none';
+      document.getElementById('updateKitForm').style.display = 'block';
+    }
+
+    function hideUpdateKit(){
+      document.getElementById('btnNewKit').style.display = 'block';
+      document.getElementById('updateKitForm').style.display = 'none';
+      alert('Test Kit number of stocks updated');
+    }
+
     // for phone size side menu
     var menuBtn = document.querySelector('.menu-btn');
     var nav = document.querySelector('.side-nav');
