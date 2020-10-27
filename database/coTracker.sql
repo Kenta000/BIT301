@@ -2,6 +2,7 @@ create database CoTracker;
 use CoTracker;
 
 create table users(
+userID varcher(10),
 username varchar(20),
 password varchar(20),
 name varchar(30),
