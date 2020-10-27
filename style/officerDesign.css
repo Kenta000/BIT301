@@ -28,6 +28,7 @@
 body {
     margin: 0;
     padding: 0;
+
 }
 
 @media (max-width:1024px){
@@ -184,7 +185,7 @@ body {
   background-color: #2e353d;
   position: fixed;
   top: 0px;
-  width: 300px;
+  width: 300px; /* Change here fro zoom up website*/
   height: 100%;
   color: #e1ffff;
   text-align: center;
@@ -270,6 +271,15 @@ body {
   }
 }
 
+/* .wrapForGenRepo{
+  position: relative;
+  background-color: #CCCCCC;
+  margin-top: 22%;
+
+  width: 100%;
+  height: auto;
+} */
+
 
 /* for gen repo */
 .informForGenRepo{
@@ -279,6 +289,7 @@ body {
 	left: 55%;
 	transform: translate(-50%, -50%);
   width: 60%;
+
   background-color: #98d6d3;
 
 	font-size: 15px;
