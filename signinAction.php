@@ -26,8 +26,7 @@
     header('location: #');
   }
   else {
-    $valid = 'false';
-    header("location: loginPage.php?valid=$valid");
+    header("location: signin.php");
 
   }
 

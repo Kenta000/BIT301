@@ -390,19 +390,19 @@
             </div>
           </section>
 
-          <!-- <?php
-            $sql = "SELECT materialID, materialName, description, pointsPerKg FROM materials";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-            echo "<tbody><tr><td>" . $row["materialID"]. "</td><td>" . $row["materialName"] . "</td><td>"
-            . $row["description"]. "</td><td>". $row["pointsPerKg"]. "</td></tr></tbody>";
-            }
-            echo "</table>";
-            } else { echo "0 results"; }
-            $conn->close();
-            ?> -->
+           <?php
+            // $sql = "SELECT materialID, materialName, description, pointsPerKg FROM materials";
+            // $result = $conn->query($sql);
+            // if ($result->num_rows > 0) {
+            // // output data of each row
+            // while($row = $result->fetch_assoc()) {
+            // echo "<tbody><tr><td>" . $row["materialID"]. "</td><td>" . $row["materialName"] . "</td><td>"
+            // . $row["description"]. "</td><td>". $row["pointsPerKg"]. "</td></tr></tbody>";
+            // }
+            // echo "</table>";
+            // } else { echo "0 results"; }
+            // $conn->close();
+            ?>
 
     <!-- end of content -->
 
