@@ -188,7 +188,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bgcolor" >
         <a class="logosize" href="home.html" style="color:white; margin:auto;">Co-Tracker</a>
-        <a class="nav-link" href="signin.html" style="color:white;">Sign out</a>
+        <a class="nav-link" href="#" style="color:white;">Sign out</a>
       </nav>
 
     </header>

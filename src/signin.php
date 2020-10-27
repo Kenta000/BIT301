@@ -20,8 +20,8 @@
   <div class="wrapper">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bgcolor" >
-        <a class="logosize" href="../src/home.html" style="color:white; margin:auto;">Co-Tracker</a>
-        <a class="nav-link" href="signin.html" style="color:white;">Login</a>
+        <a class="logosize" href="home.html" style="color:white; margin:auto;">Co-Tracker</a>
+        <a class="nav-link" href="signin.php" style="color:white;">Login</a>
       </nav>
 
     </header>
