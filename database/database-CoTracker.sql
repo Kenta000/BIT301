@@ -1,41 +1,41 @@
 CREATE DATABASE CoTracker;
 use CoTracker;
 CREATE TABLE `kits` (
-  `officerID` varchar(15) DEFAULT NULL,
-  `name` varchar(15) DEFAULT NULL,
-  `stock` int(11) DEFAULT NULL
+  `kitID` varchar(15) not null,
+  `officerID` varchar(15) not null,
+  `name` varchar(15) not null,
+  `stock` int(11) DEFAULT 0,
+  PRIMARY KEY (`KitID`),
+  FOREIGN KEY (`officerID`) references `users`(`userID`)
 ) ;
 
-CREATE TABLE `officers` (
-  `officerID` varchar(10) NOT NULL,
-  `name` varchar(15) DEFAULT NULL,
-  `username` varchar(15) DEFAULT NULL,
-  `password` varchar(15) DEFAULT NULL,
+CREATE TABLE `users` (
+  `userID` varchar(10) NOT NULL,
+  `name` varchar(15) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(15) NOT NULL,
   `position` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`officerID`)
-) ;
-
-CREATE TABLE `patients` (
-  `patientID` varchar(15) DEFAULT NULL,
-  `name` varchar(15) DEFAULT NULL,
-  `username` varchar(15) DEFAULT NULL,
-  `password` varchar(15) DEFAULT NULL,
   `patientType` varchar(15) DEFAULT NULL,
-  `symptoms` varchar(40) DEFAULT NULL
+  `symptoms` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`userID`)
 ) ;
 
 CREATE TABLE `testcenters` (
-  `name` varchar(20) DEFAULT NULL,
-  `officerID` varchar(20) DEFAULT NULL,
+  `name` varchar(20) NOT NULL,
+  `officerID` varchar(20) NOT NULL,
   `centerID` varchar(10) NOT NULL,
-  PRIMARY KEY (`centerID`)
+  PRIMARY KEY (`centerID`),
+  FOREIGN KEY (`officerID`) references `users`(`userID`)
 ) ;
 
 CREATE TABLE `tests` (
-  `testID` varchar(10) DEFAULT NULL,
-  `patientID` varchar(15) DEFAULT NULL,
-  `testerID` varchar(15) DEFAULT NULL,
-  `testDate` date DEFAULT NULL,
+  `testID` varchar(10) NOT NULL,
+  `patientID` varchar(15) NOT NULL,
+  `testerID` varchar(15) NOT NULL,
+  `testDate` date NOT NULL,
   `resultDate` date DEFAULT NULL,
-  `result` varchar(30) DEFAULT NULL
+  `result` varchar(30) DEFAULT NULL,
+  FOREIGN KEY (`patientID`) references `users`(`userID`),
+  FOREIGN KEY (`testerID`) references `users`(`userID`),
+  PRIMARY KEY (`testID`)
 ) ;
