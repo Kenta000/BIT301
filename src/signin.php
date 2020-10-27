@@ -25,7 +25,7 @@
     <!-- content -->
       <div class="wrapper-form">
 
-        <form class="form-signin" style="">
+        <form class="form-signin" method="post" action="signinAction.php">
           <h2 class="form-signin-heading" style="text-align:center; color:black; ">Login to your account</h2>
           <input type="text" class="form-control" name="username" id="username" placeholder="Username"  required="" autofocus="" />
           <input type="password" class="form-control" name="password" id="password" placeholder="Password" required=""/>
