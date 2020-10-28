@@ -15,6 +15,9 @@
   $script = "select * from users where username = '$username' and password = '$password'";
   $result = mysqli_query($con, $script);
   $row = $result -> fetch_assoc();
+  if($row['userID']!=null){
+    $_SESSION['userID'] = $row['userID'];
+  }
 
   if ($row['position'] == 'Patient') {
     header('location: patient.php');
@@ -23,7 +26,7 @@
     header('location: tester.php');
   }
   elseif ($row['position'] == 'Manager') {
-    header('location: #');
+    header('location: ./manager/manager.php');
   }
   else {
     header("location: signin.php");

@@ -39,3 +39,5 @@ CREATE TABLE `tests` (
   FOREIGN KEY (`testerID`) references `users`(`userID`),
   PRIMARY KEY (`testID`)
 ) ;
+INSERT INTO `users` VALUES ("U1","manager","manager","manager","Manager",NULL,NULL);
+
