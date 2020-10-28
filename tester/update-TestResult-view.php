@@ -32,25 +32,24 @@
       <div class="offset-md-0 col-md-4 offset-1 col-10 offset-sm-2 col-sm-8 offset-lg-0 col-lg-3">
         <div class="btn-panel row ">
           <!-- <a [routerLink]='[{ outlets: { managerRouter: ["generateReport"] } }]' class=" offset-md-0 col-md-12">Generate Test Report</a> -->
-          <a href="./manager.php" class=" offset-md-0 col-md-12">Generate Test Report</a>
+          <a href="./tester.php" class=" offset-md-0 col-md-12">Generate Test Report</a>
 
           <hr>
           <!-- <a [routerLink]='[{ outlets: { managerRouter: ["registerTestCenter"] } }]' class=" offset-md-0 col-md-12">Register Test Center</a> -->
-          <a href="./register-center-view.html" class=" offset-md-0 col-md-12">Record New Test</a>
+          <a href="./record-NewTest-view.php" class=" offset-md-0 col-md-12">Record New Test</a>
 
           <hr>
           <!-- <a [routerLink]='[{ outlets: { managerRouter: ["recordTester"] } }]' class=" offset-md-0 col-md-12">Record Tester</a> -->
-          <a href="./record-tester-view.php" class=" offset-md-0 col-md-12">Update Test Result</a>
+          <a href="./update-TestResult-view.php" class=" offset-md-0 col-md-12">Update Test Result</a>
           <hr>
 
-          <hr>
         </div>
       </div>
 
 
     <!-- Start: Main Content  -->
     <div style="margin-top:5vh;" class="main-content offset-md-0 col-md-8 offset-0 col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-8">
-      <form class="row" method="post" action="register-center.php">
+      <form class="row" method="post" action="register-patient.php">
           <div class="col-12 col-md-10 col-lg-10 form-group" style="text-align: center;">
             <!-- <label for="centerName">Test Center Name:</label> -->
             <input style="width:100%" type="text" placeholder="Test Center Name" name="centerName" class="form-control-lg" required>

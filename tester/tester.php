@@ -42,7 +42,6 @@
           <!-- <a [routerLink]='[{ outlets: { managerRouter: ["recordTester"] } }]' class=" offset-md-0 col-md-12">Record Tester</a> -->
           <a href="./update-TestResult-view.php" class=" offset-md-0 col-md-12">Update Test Result</a>
           <hr>
-          <hr>
         </div>
       </div>
     </div>

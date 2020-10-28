@@ -23,7 +23,7 @@
     header('location: patient.php');
   }
   elseif ($row['position'] == 'Tester') {
-    header('location: .tester/tester.php');
+    header('location: ./tester/tester.php');
   }
   elseif ($row['position'] == 'Manager') {
     header('location: ./manager/manager.php');
