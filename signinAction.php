@@ -20,7 +20,7 @@
   }
 
   if ($row['position'] == 'Patient') {
-    header('location: patient.php');
+    header('location: ./patient/patient.php');
   }
   elseif ($row['position'] == 'Tester') {
     header('location: ./tester/tester.php');
