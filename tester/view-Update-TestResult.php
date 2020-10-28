@@ -1,6 +1,5 @@
 <?php
-
-
+session_start();
  ?>
  <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -53,16 +52,58 @@
 
     <!-- Start: Main Content  -->
     <div style="margin-top:5vh;" class="main-content offset-md-0 col-md-8 offset-0 col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-8">
-      <form class="row" method="post" action="register-patient.php">
-          <div class="col-12 col-md-10 col-lg-10 form-group" style="text-align: center;">
-            <!-- <label for="centerName">Test Center Name:</label> -->
-            <input style="width:100%" type="text" placeholder="Test Center Name" name="centerName" class="form-control-lg" required>
+      <div class="col-12 col-md-10 col-lg-10">
+        <form  method="post" action="actionUpdateResult.php">
+          <div class="  form-group" >
+            <div class="" style="text-align: center;">
+              <label for="pendingList">Select Test</label>
+              <select id="pendingList" name="pendingList" class="form-control" onChange="openUpdateResult()" style="margin:auto;">
+                <option selected>Choose...</option>
+                <?php
+                  $id = $_SESSION['userID'];
+                  $status = "Pending";
+                  $con = mysqli_connect("localhost", "root", "", "cotracker");
+                  $script = "select * from tests where testerID = '$id' and status = '$status'";
+                  $result = mysqli_query($con, $script);
+                  while ($row = $result -> fetch_assoc()) {
+                 ?>
+                 <option value="<?php echo $row['testID']; ?>"><?php echo $row['testID']; ?></option>
+               <?php } ?>
+              </select>
+            </div>
           </div>
+          <div class="" id="addResult" style="display:none;">
+              <div class="form-group" style="text-align: center;">
+                <label for="result">Select Patient Type</label>
+                <select id="result" name="result" class="form-control" style="margin:auto;">
+                  <option selected>Choose...</option>
+                  <option>Negative</option>
+                  <option>Positive</option>
 
-          <button class="offset-3 col-6 offset-md-3 col-md-3 offset-lg-4 col-lg-2 btn btn-success btn-block"
-            type="submit" style="margin-top: 1rem;">Submit</button>
+                </select>
+                <br>
+                <div class="" style="text-align:center;" onclick="hideAddResult()">
+                  <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
+                </div>
+            </div>
+          </div>
         </form>
+      </div>
     </div>
     </div>
+
+    <script type="text/javascript">
+    // when test list selected then show form for result update
+    function openUpdateResult(){
+      document.getElementById('addResult').style.display = 'block';
+    }
+
+    function hideAddResult(){
+      document.getElementById('addResult').style.display = 'none';
+      // alert('Result Updated');
+    }
+
+
+    </script>
   </body>
 </html>

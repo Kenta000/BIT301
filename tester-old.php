@@ -280,8 +280,8 @@
 <!-- update test result -->
   <div class="updTest " id="updateResult" style="display:none;">
     <div class="row" style="">
-      <form class="col-lg" style="" >
-        <div class="form-group" >
+      <form class="row" method="post" action="register-patient.php">
+        <div class="col-12 col-md-10 col-lg-10  form-group" >
           <div class="" style="text-align: center;">
             <label for="pendingList">Select Test</label>
             <select id="pendingList" class="form-control" onChange="openUpdateResult()" style="margin:auto;">

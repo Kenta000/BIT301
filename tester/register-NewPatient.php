@@ -40,9 +40,11 @@
 //Insert tester
   $testerID = $_SESSION['userID'];
   $genDate = date("Y-m-d");
+  $status = "Pending";
 
-  $scriptTes = "insert into tests values ('$tid','$id','$testerID','$genDate',null,null)";
+  $scriptTes = "insert into tests values ('$tid','$id','$testerID','$genDate',null,null,'$status')";
   $resultTes = mysqli_query($con, $scriptTes);
+
 
   header('location: view-Record-NewTest.php');
 

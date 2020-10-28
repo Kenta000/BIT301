@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
  ?>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@
     <!-- Start: Main Content  -->
     <main style="margin-top:5vh;" class="main-content offset-md-0 col-md-8 offset-0 col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-8">
       <!-- for record test -->
-            <div class="recTes " id="recTest" >
+            <div class="" id="recTest" >
               <div class="row" style="">
                   <form class="col-lg" style="" action="register-existingPTest.php" method="post">
                     <div class="col-12 col-md-10 col-lg-10 form-group" style="">
@@ -61,19 +61,34 @@
                       <select id="pList" name = "pList"  class="form-control" onChange="openAddTestForm()" >
                         <option selected>Choose...</option>
                         <?php
-                          session_start();
-                          $id = $_SESSION['userID'];
                           $con = mysqli_connect("localhost", "root", "", "cotracker");
                           $script = "select * from users where position = 'Patient'";
                           $result = mysqli_query($con, $script);
-
                           while ($row = $result -> fetch_assoc()) {
-
                          ?>
                           <option value="<?php echo $row['username']; ?>"><?php echo $row['username']; ?></option>
                         <?php } ?>
                       </select>
                     </div>
+                    <!-- Apper -->
+                    <div class="col-12 col-md-10 col-lg-10 form-group" id="addTestForm" style="display:none;">
+                      <label for="pType">Select Patient Type</label>
+                      <select id="pType" name="pType" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Returneee</option>
+                        <option>Quarantined</option>
+                        <option>Close Contact</option>
+                        <option>Infected</option>
+                        <option>Suspected</option>
+                      </select>
+                      <label for="symptoms">Symptoms</label>
+                      <input type="text" class="form-control" name ="symptoms" id="symptoms" aria-describedby="" placeholder="Symptoms">
+                      <br>
+                      <div class="" style="text-align:center;" onclick="hideAddTestForm()">
+                        <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
+                      </div>
+                    </div>
+
                   </form>
 
         <!-- Add test -->
@@ -82,31 +97,6 @@
                         <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#newPatient" >New Patient?</button>
                   </div>
                 </div>
-
-              <div class="" id="addTestForm" style="display:none;">
-                <form class="col-12 col-md-10 col-lg-10 form-group" style="" action="register-existingPTest.php" method="post">
-                  <div class="form-group">
-                    <label for="pType">Select Patient Type</label>
-                    <select id="pType" class="form-control">
-                      <option selected>Choose...</option>
-                      <option>Returneee</option>
-                      <option>Quarantined</option>
-                      <option>Close Contact</option>
-                      <option>Infected</option>
-                      <option>Suspected</option>
-                    </select>
-                    <label for="symptoms">Symptoms</label>
-                    <input type="text" class="form-control" id="symptoms" aria-describedby="" placeholder="Symptoms">
-
-                    <br>
-                    <div class="" style="text-align:center;" onclick="hideAddTestForm()">
-                      <button type="button" class="btn btn-primary" style="width:30%;">Submit</button>
-                    </div>
-
-                  </div>
-                </form>
-
-              </div>
             </div>
     </main>
 
@@ -171,7 +161,6 @@
   function hideAddTestForm(){
     document.getElementById('btnNewPatient').style.display = 'block';
     document.getElementById('addTestForm').style.display = 'none';
-    alert('Test Added');
 }
 
 
