@@ -1,5 +1,17 @@
 CREATE DATABASE CoTracker;
 use CoTracker;
+CREATE TABLE `users` (
+  `userID` varchar(10) NOT NULL,
+  `name` varchar(15) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(15) NOT NULL,
+  `position` varchar(15) DEFAULT NULL,
+  `testCenter` varchar(20) DEFAULT NULL,
+  `patientType` varchar(15) DEFAULT NULL,
+  `symptoms` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`userID`)
+) ;
+
 CREATE TABLE `kits` (
   `kitID` varchar(15) not null,
   `officerID` varchar(15) not null,
@@ -7,17 +19,6 @@ CREATE TABLE `kits` (
   `stock` int(11) DEFAULT 0,
   PRIMARY KEY (`KitID`),
   FOREIGN KEY (`officerID`) references `users`(`userID`)
-) ;
-
-CREATE TABLE `users` (
-  `userID` varchar(10) NOT NULL,
-  `name` varchar(15) NOT NULL,
-  `username` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL,
-  `position` varchar(15) DEFAULT NULL,
-  `patientType` varchar(15) DEFAULT NULL,
-  `symptoms` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`userID`)
 ) ;
 
 CREATE TABLE `testcenters` (
@@ -39,5 +40,4 @@ CREATE TABLE `tests` (
   FOREIGN KEY (`testerID`) references `users`(`userID`),
   PRIMARY KEY (`testID`)
 ) ;
-INSERT INTO `users` VALUES ("U1","manager","manager","manager","Manager",NULL,NULL);
-
+INSERT INTO `users` VALUES ("U1","manager","manager","manager","Manager",NULL,NULL,NULL);
