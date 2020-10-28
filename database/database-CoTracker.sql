@@ -6,7 +6,7 @@ CREATE TABLE `users` (
   `username` varchar(15) NOT NULL,
   `password` varchar(15) NOT NULL,
   `position` varchar(15) DEFAULT NULL,
-  `testCenter` varchar(20) DEFAULT NULL,
+  `centerID` varchar(10) DEFAULT NULL,
   `patientType` varchar(15) DEFAULT NULL,
   `symptoms` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`userID`)

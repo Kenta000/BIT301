@@ -80,7 +80,7 @@
                 while ($row = $result -> fetch_assoc()) {
 
                ?>
-                <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></mat-option>
+                <option value="<?php echo $row['centerID']; ?>"><?php echo $row['name']; ?></mat-option>
               <?php } ?>
             </select>
           </div>

@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -11,17 +11,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>Manager</title>
+
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+
+      href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript"
+
+      src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"
+
+      src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">
+    </script>
     <style>
     body{background-color: #E8F3F9;}
 
 
     </style>
 
-
   </head>
 
   <body class="container-fluid">
-      <header class="row">
+      <header class="row" style="padding:0">
         <a href="../home.html" title="Log Out!" class="offset-md-0 col-md-4 offset-1 col-10 offset-sm-0 col-sm-6 offset-lg-0 col-lg-3"> <h2 >Co - Tracker Ltd.</h2> </a>
         <h4 class="offset-md-4 col-md-2 offset-0 col-6 offset-sm-0 col-sm-3 offset-lg-5 col-lg-2">Manager</h4>
         <h4 class="offset-md-0 col-md-2 offset-0 col-6 offset-sm-0 col-sm-3 offset-lg-0 col-lg-2">username</h4>
@@ -48,11 +61,67 @@
           <hr>
         </div>
       </div>
-    </div>
+
 
     <!-- Start: Main Content  -->
-    <div class="main-content offset-md-0 col-md-8 offset-0 col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-8">
+      <div style="margin-top:5vh;" class="main-content offset-md-0 col-md-8 offset-0 col-12 offset-sm-1 col-sm-10 offset-lg-0 col-lg-9">
+        <div class="table-responsive">
+          <table id="myTable" class="display table" width="100%" >
+            <thead>
+              <tr>
+                <th>PatientID</th>
+                <th>Type</th>
+                <th>Test Center</th>
+                <th>Status</th>
+                <th>Result</th>
+                <th>Test Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+                session_start();
+                $id = $_SESSION['userID'];
+                $conn = mysqli_connect("localhost", "root", "", "cotracker");
+                $script = "select * from tests
+                  INNER JOIN users ON tests.testerID = users.userID
+                  INNER JOIN testcenters ON users.centerID = testcenters.centerID
+                  where testcenters.officerID='$id';";
+                $result = mysqli_query($conn, $script);
 
+
+                while ($row = $result -> fetch_assoc()) {
+                  echo $row['testerID'];
+               ?>
+               <tr>
+                 <td><?php
+                  echo $row['patientID'];
+                  ?></td>
+                  <td><?php
+                    $patient = $row['patientID'];
+                    $scriptThis = "select patientType from users where userID='$patient';";
+                    $resultThis = mysqli_query($conn, $scriptThis);
+                    $rowForThis = $resultThis->fetch_assoc();
+                    echo $rowForThis['patientType'];
+                  ?>
+                  </td>
+                 <td><?php echo $row['centerID'] ?></td>
+                 <td><?php echo $row['status'] ?></td>
+                 <td><?php echo $row['result'] ?></td>
+                 <td><?php echo $row['testDate'] ?></td>
+               </tr>
+              <?php } ?>
+            </tbody>
+
+
+          </table>
+        </div>
+      </div>
     </div>
   </body>
+  <script>
+    $(document).ready(function(){
+        $('#myTable').dataTable();
+    });
+</script>
+
 </html>
