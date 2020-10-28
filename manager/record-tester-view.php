@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+
+
+ ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -48,11 +51,46 @@
           <hr>
         </div>
       </div>
-    </div>
+
 
     <!-- Start: Main Content  -->
-    <div class="main-content offset-md-0 col-md-8 offset-0 col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-8">
+      <div class="main-content offset-md-0 col-md-8 offset-0 col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-8">
+        <form style="margin-top:5vh;" method="post" action="./record-tester-action.php" class="row">
 
+          <div class="form-group offset-2 col-8 offset-md-0 col-md-5 col-lg-5">
+            <!-- <label for="">Tester's Username:</label> <br> -->
+            <input class="form-control-lg" style="width:100%" type="text" placeholder="Tester's Username" class="form-control"  name="testerUsername" required>
+          </div>
+          <div class="form-group offset-2 col-8 offset-md-0 col-md-5 col-lg-5">
+            <input class="form-control-lg" style="width:100%" placeholder="Tester's Password" type="password" name="testerPassword" required>
+          </div>
+          <div class="form-group offset-2 col-8 offset-md-0 col-md-5 offset-lg-0 col-lg-5">
+            <input class="form-control-lg" style="width:100%" placeholder="Tester's Name" type="text" name="testerName" required>
+          </div>
+          <div appearance="fill" class="form-group offset-2 col-8 offset-md-0 col-md-5 col-lg-5" >
+
+            <select class="form-control-lg" style="width:100%" name="centerName" required>
+              <?php
+                session_start();
+                $id = $_SESSION['userID'];
+                $conn = mysqli_connect("localhost", "root", "", "cotracker");
+                $script = "select * from testcenters where officerID='$id'";
+                $result = mysqli_query($conn, $script);
+
+                while ($row = $result -> fetch_assoc()) {
+
+               ?>
+                <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></mat-option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="col-7"></div>
+          <button class="offset-3 col-6 offset-md-4 col-md-4 offset-lg-4 col-lg-2 btn btn-success btn-lg btn-block"
+            type="submit" style="margin-top: 1rem;">Submit</button>
+
+        </form>
+      </div>
     </div>
   </body>
 </html>
