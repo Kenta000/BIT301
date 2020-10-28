@@ -36,6 +36,7 @@ CREATE TABLE `tests` (
   `testDate` date NOT NULL,
   `resultDate` date DEFAULT NULL,
   `result` varchar(30) DEFAULT NULL,
+  'status' varchar(15) DEFAULT NULL,
   FOREIGN KEY (`patientID`) references `users`(`userID`),
   FOREIGN KEY (`testerID`) references `users`(`userID`),
   PRIMARY KEY (`testID`)

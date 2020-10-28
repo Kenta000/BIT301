@@ -57,8 +57,8 @@
               <div class="row" style="">
                   <form class="col-lg" style="" action="register-existingPTest.php" method="post">
                     <div class="col-12 col-md-10 col-lg-10 form-group" style="">
-                      <label for="testList">Select Existing Patient</label>
-                      <select id="testList" class="form-control" onChange="openAddTestForm()" >
+                      <label for="pList">Select Patient to Update test</label>
+                      <select id="pList" name = "pList"  class="form-control" onChange="openAddTestForm()" >
                         <option selected>Choose...</option>
                         <?php
                           session_start();
