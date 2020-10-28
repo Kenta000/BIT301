@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Manager</title>
+    <title>Tester</title>
     <style>
     body{background-color: #E8F3F9;}
 
@@ -36,11 +36,11 @@
 
           <hr>
           <!-- <a [routerLink]='[{ outlets: { managerRouter: ["registerTestCenter"] } }]' class=" offset-md-0 col-md-12">Register Test Center</a> -->
-          <a href="./record-NewTest-view.php" class=" offset-md-0 col-md-12">Record New Test</a>
+          <a href="./view-Record-NewTest.php" class=" offset-md-0 col-md-12">Record New Test</a>
 
           <hr>
           <!-- <a [routerLink]='[{ outlets: { managerRouter: ["recordTester"] } }]' class=" offset-md-0 col-md-12">Record Tester</a> -->
-          <a href="./update-TestResult-view.php" class=" offset-md-0 col-md-12">Update Test Result</a>
+          <a href="./view-Update-TestResult.php" class=" offset-md-0 col-md-12">Update Test Result</a>
           <hr>
         </div>
       </div>
