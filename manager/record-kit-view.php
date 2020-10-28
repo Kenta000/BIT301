@@ -55,22 +55,30 @@
     <!-- Start: Main Content  -->
       <div class="main-content offset-md-0 col-md-8 offset-0 col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-8">
         <div class=" col-12 col-lg-12">
-          <form (submit)="onChoose(form)" id="showField" class="mt-4 col-12 row">
+          <form method="get" action="./record-kit-action.php" id="showField" class="mt-4 col-12 row">
             <!-- <mat-form-field class=" offset-2 col-8 offset-md-0 col-md-5 col-lg-4"> -->
 
               <div class="form-group offset-1 col-12 offset-md-0 col-md-5 offset-lg-0 col-lg-4">
                 <!-- <label>Test Kit</label> -->
-                <select name="kitID" required placeholder="text" style="margin-top:7px;" class="form-control">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
+                <select class="form-control-lg" style="width:100%; margin-top:2px;" name="kit" required>
+                  <?php
+                    session_start();
+                    $id = $_SESSION['userID'];
+                    $conn = mysqli_connect("localhost", "root", "", "cotracker");
+                    $script = "select * from kits where officerID='$id'";
+                    $result = mysqli_query($conn, $script);
+
+                    while ($row = $result -> fetch_assoc()) {
+
+                   ?>
+                    <option value="<?php echo $row['kitID']; ?>"><?php echo $row['kitID']; ?></mat-option>
+                  <?php } ?>
                 </select>
               </div>
 
             <!-- </mat-form-field> -->
 
-            <button onclick="document.getElementById('updateField').style.display = 'block';
+            <button onclick="document.getElementById('updateField').style.display = 'flex';
               document.getElementById('createField').style.display = 'none';"
               class="offset-4 col-6 offset-md-0 col-md-3 offset-lg-0 col-lg-2 btn btn-primary mb-4  "
               type="button" style="margin-top: 4px;" >Display</button>
@@ -78,35 +86,37 @@
               document.getElementById('createField').style.display = 'block';"
               pButton class="offset-4 col-6 offset-md-1 col-md-3 offset-lg-1 col-lg-2 btn btn-block btn-link mb-4  "
               type="button" style="margin-top: 4px; font-size: 20px; border: solid gray 1px;" >New Kit?</button>
+
+              <!-- Update existing Stock -->
+            <div class="form-row row col-12" id="updateField" style="margin-top:5vh;">
+              <div class="form-group my-1 offset-2 col-8 offset-md-0 col-md-5 offset-lg-1 col-lg-4">
+                <input type="number" placeholder="Number of Stocks" style="width:100%;" min="1" class="form-control-lg"  name="stockNumber" required>
+              </div>
+              <div class="form-group my-1 offset-2 col-8 offset-md-1 col-md-5 offset-lg-0 col-lg-3">
+                <button class="form-control-lg btn-success btn-block btn-lg"
+                  type="submit">Update</button>
+              </div>
+            </div>
           </form>
 
 
-
-            <form (submit)="onCreate(createForm)" #createForm="ngForm" id="createField"  class="col-12">
-              <mat-form-field class=" offset-2 col-8 offset-md-0 col-md-5 col-lg-4">
-                <input matInput type="text" placeholder="Test Kit name" class="form-control"  name="name" ngModel required minlength="3" #name="ngModel">
-                <mat-error *ngIf="name.invalid" >Please, enter the name</mat-error>
-              </mat-form-field>
-              <mat-form-field class=" offset-2 col-8 offset-md-0 col-md-5 offset-lg-1 col-lg-4">
-                <input matInput class="form-control" placeholder="Number of stocks" type="number" name="numOfStocks" ngModel required minlength="3" #numOfStocks="ngModel"/>
-                <mat-error *ngIf = "numOfStocks.invalid" >Please, enter the number</mat-error>
-              </mat-form-field>
+          <!-- Record New Kit -->
+            <form id="createField" method="post" action="./record-kit-action.php" class="col-12" style="margin-top:5vh;">
+              <div class="form-row">
+                <div class="offset-2 col-8 offset-md-0 col-md-5 col-lg-4">
+                  <input class="form-control-lg" style="width:100%;" type="text" placeholder="Test Kit name" name="name" required>
+                </div>
+                <div class=" offset-2 col-8 offset-md-0 col-md-5 offset-lg-1 col-lg-4">
+                  <input class="form-control-lg" style="width:100%;" min="1" placeholder="Number of stocks" type="number" name="numOfStocks" required>
+                </div>
+              </div>
               <div class="col-7"></div>
               <button class="offset-3 col-6 offset-md-4 col-md-4 offset-lg-3 col-lg-3 btn btn-success btn-lg btn-block"
                 type="submit" style="margin-top: 1rem;">Submit</button>
 
             </form>
 
-            <form (submit)="onAdd(addForm)" #addForm="ngForm"  id="updateField" class="col-12">
-              <mat-form-field class=" offset-2 col-8 offset-md-0 col-md-5 offset-lg-2 col-lg-5">
-                <input matInput type="number" placeholder="Number of Stocks" class="form-control"  name="stockNumber" ngModel required #stockNumber="ngModel">
-                <mat-error *ngIf="stockNumber.invalid" >Please, enter the number</mat-error>
-              </mat-form-field>
 
-              <button class="offset-3 col-6 offset-md-1 col-md-4 offset-lg-3 col-lg-3 btn btn-success btn-lg btn-block"
-                type="submit" style="margin-top: 1rem;">Submit</button>
-
-            </form>
 
           </div>
       </div>
