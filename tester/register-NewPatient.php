@@ -28,13 +28,21 @@
   $SQLlastTest = "select testID from tests order by testID desc limit 1;";
   $lastResultTest = mysqli_query($con, $SQLlastTest);
   if (mysqli_num_rows($lastResultTest) == 0) {
-    $tid = "T1";
+    $tid = "T001";
   }
   else {
     $lastRowTest = $lastResultTest->fetch_assoc();
     $numT = ltrim((string)$lastRowTest['testID'], 'T');
     $numT = (int)$numT + 1;
-    $tid = 'T'.$numT;
+    if ((int)$numT < 10) {
+      $tid = 'T00'.$numT;
+    }
+    elseif ($num < 100) {
+      $tid = 'T0'.$numT;
+    }
+    else {
+      $tid = 'T'.$numT;
+    }
   }
 
 // Insert user

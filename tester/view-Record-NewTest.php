@@ -169,10 +169,10 @@ session_start();
     document.getElementById('btnNewPatient').style.display = 'none';
     document.getElementById('addTestForm').style.display = 'block';
 }
-  function hideAddTestForm(){
-    document.getElementById('btnNewPatient').style.display = 'block';
-    document.getElementById('addTestForm').style.display = 'none';
-}
+//   function hideAddTestForm(){
+//     document.getElementById('btnNewPatient').style.display = 'block';
+//     document.getElementById('addTestForm').style.display = 'none';
+// }
 
 
     </script>

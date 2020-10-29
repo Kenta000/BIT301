@@ -202,8 +202,8 @@ session_start();
   <div class="wrapper">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bgcolor" style="margin:0;">
-        <a class="logosize" href="home.html" style="color:white; margin:auto;">Co-Tracker</a>
-        <a class="nav-link" href="#" style="color:white;">
+        <a class="logosize" href="../home.html" style="color:white; margin:auto;">Co-Tracker</a>
+        <a class="nav-link" href="../home.html" style="color:white;">
         <?php
 
         ?>
