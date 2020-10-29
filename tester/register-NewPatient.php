@@ -2,6 +2,8 @@
   session_start();
   $con = mysqli_connect("localhost", "root", "", "cotracker");
 
+  $_SESSION['isExistMessage'] = ""; // error message
+
   $SQLlast = "select userID from users order by userID desc limit 1;";
   $lastResult = mysqli_query($con, $SQLlast);
   if (mysqli_num_rows($lastResult) == 0) {
@@ -49,18 +51,19 @@
 
   $qu ="SELECT * FROM users WHERE username='$pu';";
   $check = mysqli_query($con,$qu);
-   if(mysqli_num_rows($check)>0){
-       echo '<script>alert("Userename already exist.");
-                      window.location = "register-NewPatient.php";
-             </script>';
+   if(mysqli_num_rows($check)==0){ // create patient
+     $script = "insert into users values ('$id','$pn','$pu','$pp','Patient',null,'$type','$symp')";
+     $result = mysqli_query($con, $script);
+     $scriptTes = "insert into tests values ('$tid','$id','$testerID','$genDate',null,null,'$status')";
+     $resultTes = mysqli_query($con, $scriptTes);
 
-  }else{
-  $script = "insert into users values ('$id','$pn','$pu','$pp','Patient',null,'$type','$symp')";
-  $result = mysqli_query($con, $script);
-  $scriptTes = "insert into tests values ('$tid','$id','$testerID','$genDate',null,null,'$status')";
-  $resultTes = mysqli_query($con, $scriptTes);
-  header('location: view-Record-NewTest.php');
 
-}
+
+
+   }
+   else{ // do not create patient, make alert message to be displayed in view
+     $_SESSION['isExistMessage'] = '<script>alert("Failed, this Username already exists. Please, use another username!");</script>';
+   }
+   header('location: ./view-Record-NewTest.php');
 
 ?>

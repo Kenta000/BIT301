@@ -100,6 +100,17 @@ session_start();
             </div>
     </main>
 
+    <!-- Displays error message -->
+    <?php
+    try {
+      echo $_SESSION['isExistMessage'];
+      $_SESSION['isExistMessage'] = "";
+    } catch (\Exception $e) {
+      return;
+    }
+     ?>
+     <!-- END: Displays error message -->
+
     <!-- Modal  -->
     <div class="modal fade" id="newPatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
