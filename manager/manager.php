@@ -69,6 +69,7 @@
           <table id="myTable" class="display table" width="100%" >
             <thead>
               <tr>
+                <th>TestID</th>
                 <th>PatientID</th>
                 <th>Type</th>
                 <th>Test Center</th>
@@ -93,6 +94,7 @@
 
                ?>
                <tr>
+                 <td><?php echo $row['testID'] ?></td>
                  <td><?php
                   echo $row['patientID'];
                   ?></td>
