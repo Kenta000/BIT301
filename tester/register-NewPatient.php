@@ -33,19 +33,26 @@
   $pn = $_POST['pName'];
   $type = $_POST['newPType'];
   $symp = $_POST['newPsymptoms'];
-
-  $script = "insert into users values ('$id','$pn','$pu','$pp','Patient',null,'$type','$symp')";
-  $result = mysqli_query($con, $script);
-
 //Insert tester
   $testerID = $_SESSION['userID'];
   $genDate = date("Y-m-d");
   $status = "Pending";
 
+
+  $qu ="SELECT * FROM users WHERE username='$pu';";
+  $check = mysqli_query($con,$qu);
+   if(mysqli_num_rows($check)>0){
+       echo '<script>alert("Userename already exist.");
+                      window.location = "register-NewPatient.php";
+             </script>';
+
+  }else{
+  $script = "insert into users values ('$id','$pn','$pu','$pp','Patient',null,'$type','$symp')";
+  $result = mysqli_query($con, $script);
   $scriptTes = "insert into tests values ('$tid','$id','$testerID','$genDate',null,null,'$status')";
   $resultTes = mysqli_query($con, $scriptTes);
-
-
   header('location: view-Record-NewTest.php');
+
+}
 
 ?>

@@ -57,7 +57,7 @@ session_start();
           <div class="  form-group" >
             <div class="" style="text-align: center;">
               <label for="pendingList">Select Test</label>
-              <select id="pendingList" name="pendingList" class="form-control" onChange="openUpdateResult()" style="margin:auto;">
+              <select id="pendingList" name="pendingList" class="form-control" onChange="openUpdateResult()" style="margin:auto;" required>
                 <option selected>Choose...</option>
                 <?php
                   $id = $_SESSION['userID'];
@@ -75,7 +75,7 @@ session_start();
           <div class="" id="addResult" style="display:none;">
               <div class="form-group" style="text-align: center;">
                 <label for="result">Select Patient Type</label>
-                <select id="result" name="result" class="form-control" style="margin:auto;">
+                <select id="result" name="result" class="form-control" style="margin:auto;" required>
                   <option selected>Choose...</option>
                   <option>Negative</option>
                   <option>Positive</option>

@@ -73,7 +73,7 @@ session_start();
                     <!-- Apper -->
                     <div class="col-12 col-md-10 col-lg-10 form-group" id="addTestForm" style="display:none;">
                       <label for="pType">Select Patient Type</label>
-                      <select id="pType" name="pType" class="form-control">
+                      <select id="pType" name="pType" class="form-control" >
                         <option selected>Choose...</option>
                         <option>Returneee</option>
                         <option>Quarantined</option>
@@ -82,7 +82,7 @@ session_start();
                         <option>Suspected</option>
                       </select>
                       <label for="symptoms">Symptoms</label>
-                      <input type="text" class="form-control" name ="symptoms" id="symptoms" aria-describedby="" placeholder="Symptoms">
+                      <input type="text" class="form-control" name ="symptoms" id="symptoms" aria-describedby="" placeholder="Symptoms" required>
                       <br>
                       <div class="" style="text-align:center;" onclick="hideAddTestForm()">
                         <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
@@ -114,19 +114,19 @@ session_start();
               <div class="modal-body">
                   <div class="form-group">
                     <label for="pUsername">Enter Username</label>
-                    <input type="text" class="form-control" name="pUsername" id="pUsername" aria-describedby="" placeholder="Username">
+                    <input type="text" class="form-control" name="pUsername" id="pUsername" aria-describedby="" placeholder="Username" required>
                   </div>
                   <div class="form-group">
                     <label for="pPassword">Enter Password</label>
-                    <input type="password" class="form-control" name="pPassword" id="pPassword" aria-describedby="" placeholder="Password">
+                    <input type="password" class="form-control" name="pPassword" id="pPassword" aria-describedby="" placeholder="Password" required>
                   </div>
                   <div class="form-group">
                     <label for="pName">Enter Name</label>
-                    <input type="text" class="form-control" name="pName" id="pName" aria-describedby="" placeholder="Name">
+                    <input type="text" class="form-control" name="pName" id="pName" aria-describedby="" placeholder="Name" required>
                   </div>
                   <div class="form-group">
                     <label for="newPType">Select Patient Type</label>
-                    <select name="newPType" id="newPType" class="form-control">
+                    <select name="newPType" id="newPType" class="form-control" >
                       <option selected>Choose...</option>
                       <option>Returneee</option>
                       <option>Quarantined</option>
@@ -137,7 +137,7 @@ session_start();
                   </div>
                   <div class="form-group">
                     <label for="symptoms">Symptoms</label>
-                    <input type="text" class="form-control" name="newPsymptoms" id="newPsymptoms" aria-describedby="" placeholder="Symptoms">
+                    <input type="text" class="form-control" name="newPsymptoms" id="newPsymptoms" aria-describedby="" placeholder="Symptoms" required>
                   </div>
               </div>
               <div class="modal-footer" >
