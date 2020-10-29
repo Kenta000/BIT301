@@ -5,13 +5,21 @@
   $SQLlast = "select userID from users order by userID desc limit 1;";
   $lastResult = mysqli_query($con, $SQLlast);
   if (mysqli_num_rows($lastResult) == 0) {
-    $id = "U1";
+    $id = "U001";
   }
   else {
     $lastRow = $lastResult->fetch_assoc();
     $num = ltrim((string)$lastRow['userID'], 'U');
     $num = (int)$num + 1;
-    $id = 'U'.$num;
+    if ((int)$num < 10) {
+      $id = 'U00'.$num;
+    }
+    elseif ($num < 100) {
+      $id = 'U0'.$num;
+    }
+    else {
+      $id = 'U'.$num;
+    }
   }
 
   // generate test id
