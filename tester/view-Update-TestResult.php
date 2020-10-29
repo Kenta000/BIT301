@@ -58,7 +58,7 @@ session_start();
             <div class="" style="text-align: center;">
               <label for="pendingList">Select Test</label>
               <select id="pendingList" name="pendingList" class="form-control" onChange="openUpdateResult()" style="margin:auto;" required>
-                <option selected>Choose...</option>
+                <option selected hidden value="">Choose...</option>
                 <?php
                   $id = $_SESSION['userID'];
                   $status = "Pending";
@@ -76,15 +76,22 @@ session_start();
               <div class="form-group" style="text-align: center;">
                 <label for="result">Select Patient Type</label>
                 <select id="result" name="result" class="form-control" style="margin:auto;" required>
-                  <option selected>Choose...</option>
+                  <option selected hidden value="">Choose...</option>
                   <option>Negative</option>
                   <option>Positive</option>
 
                 </select>
                 <br>
-                <div class="" style="text-align:center;" onclick="hideAddResult()">
-                  <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
+                <div class="row justify-content-end ">
+                  <div class="col-4"  >
+                    <button type="submit" class="btn btn-primary" style="width:100%;" >Submit</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-danger"  onclick="location.href= 'view-Update-TestResult.php'">Cancel</button>
+                  </div>
+
                 </div>
+
             </div>
           </div>
         </form>

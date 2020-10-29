@@ -27,8 +27,17 @@
 
         <form class="form-signin" method="post" action="signinAction.php">
           <h2 class="form-signin-heading" style="text-align:center; color:black; ">Login to your account</h2>
-          <input type="text" class="form-control" name="username" id="username" placeholder="Username"  required="" autofocus="" />
-          <input type="password" class="form-control" name="password" id="password" placeholder="Password" required=""/>
+          <div>
+            <?php
+              session_start();
+              if (isset($_GET['valid'])){
+                echo "<p class='alert alert-warning'>Invalid username or password</p>";
+              }
+
+             ?>
+          </div>
+          <input type="text" class="form-control"  name="username" id="username" placeholder="Username"  required="" autofocus="" />
+          <input type="password" class="form-control" pattern=".{6,}" title="Enter more than 6 characters" name="password" id="password" placeholder="Password" required=""/>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="login()">Login</button>
         </form>
@@ -88,6 +97,8 @@
 //     document.location = "signin.html"
 //   }
 // }
+
+
   </script>
 
   </body>

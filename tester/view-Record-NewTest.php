@@ -58,8 +58,8 @@ session_start();
                   <form class="col-lg" style="" action="register-existingPTest.php" method="post">
                     <div class="col-12 col-md-10 col-lg-10 form-group" style="">
                       <label for="pList">Select Patient to Update test</label>
-                      <select id="pList" name = "pList"  class="form-control" onChange="openAddTestForm()" >
-                        <option selected>Choose...</option>
+                      <select id="pList" name = "pList"  class="form-control" onChange="openAddTestForm()" required>
+                        <option selected hidden>Choose...</option>
                         <?php
                           $con = mysqli_connect("localhost", "root", "", "cotracker");
                           $script = "select * from users where position = 'Patient'";
@@ -73,8 +73,8 @@ session_start();
                     <!-- Apper -->
                     <div class="col-12 col-md-10 col-lg-10 form-group" id="addTestForm" style="display:none;">
                       <label for="pType">Select Patient Type</label>
-                      <select id="pType" name="pType" class="form-control" >
-                        <option selected>Choose...</option>
+                      <select id="pType" name="pType" class="form-control" required>
+                        <option selected hidden value="">Choose...</option>
                         <option>Returneee</option>
                         <option>Quarantined</option>
                         <option>Close Contact</option>
@@ -84,9 +84,16 @@ session_start();
                       <label for="symptoms">Symptoms</label>
                       <input type="text" class="form-control" name ="symptoms" id="symptoms" aria-describedby="" placeholder="Symptoms" required>
                       <br>
-                      <div class="" style="text-align:center;" onclick="hideAddTestForm()">
-                        <button type="submit" class="btn btn-primary" style="width:30%;">Submit</button>
+
+                      <div class="row justify-content-end ">
+                        <div class="col-4"  >
+                          <button type="submit" class="btn btn-primary" style="width:100%;" >Submit</button>
+                        </div>
+                        <div class="col-4">
+                          <button type="button" class="btn btn-danger"  onclick="location.href= 'view-Record-NewTest.php'">Cancel</button>
+                        </div>
                       </div>
+
                     </div>
 
                   </form>
@@ -129,7 +136,7 @@ session_start();
                   </div>
                   <div class="form-group">
                     <label for="pPassword">Enter Password</label>
-                    <input type="password" class="form-control" name="pPassword" id="pPassword" aria-describedby="" placeholder="Password" required>
+                    <input type="password" pattern=".{6,}" title="Enter more than 6 characters" class="form-control" name="pPassword" id="pPassword" aria-describedby="" placeholder="Password" required>
                   </div>
                   <div class="form-group">
                     <label for="pName">Enter Name</label>
@@ -137,8 +144,8 @@ session_start();
                   </div>
                   <div class="form-group">
                     <label for="newPType">Select Patient Type</label>
-                    <select name="newPType" id="newPType" class="form-control" >
-                      <option selected>Choose...</option>
+                    <select name="newPType" id="newPType" class="form-control" required>
+                      <option selected hidden value="">Choose...</option>
                       <option>Returneee</option>
                       <option>Quarantined</option>
                       <option>Close Contact</option>
@@ -168,11 +175,11 @@ session_start();
   function openAddTestForm(){
     document.getElementById('btnNewPatient').style.display = 'none';
     document.getElementById('addTestForm').style.display = 'block';
-}
-//   function hideAddTestForm(){
-//     document.getElementById('btnNewPatient').style.display = 'block';
-//     document.getElementById('addTestForm').style.display = 'none';
-// }
+  }
+  //   function hideAddTestForm(){
+  //     document.getElementById('btnNewPatient').style.display = 'block';
+  //     document.getElementById('addTestForm').style.display = 'none';
+  // }
 
 
     </script>

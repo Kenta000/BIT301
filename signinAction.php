@@ -29,7 +29,8 @@
     header('location: ./manager/manager.php');
   }
   else {
-    header("location: signin.php");
+    $valid = 'false';
+    header("location: signin.php?valid=$valid");
 
   }
 
