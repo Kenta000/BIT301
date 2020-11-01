@@ -22,9 +22,7 @@
    min-height: 100vh;
 } */
 
-footer{
-  margin-top:auto;
-}
+
 #hpwrapper {
   /* background: url(/assets/HPbg2.jpg) no-repeat center top; */
   background-color: #3498db;
@@ -95,7 +93,7 @@ img {
   max-width: 110%;
   height: auto;
   margin:0 auto;
-  
+
   /* margin-left: 20%; */
 
 }
@@ -200,7 +198,7 @@ img {
     text-align: center;
     padding: 30px 0;
 
- position: absolute;/*←絶対位置*/
+    position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
 }
 
